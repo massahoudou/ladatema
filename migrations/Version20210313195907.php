@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210313194133 extends AbstractMigration
+final class Version20210313195907 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -20,12 +20,6 @@ final class Version20210313194133 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP SEQUENCE categori_id_seq CASCADE');
-        $this->addSql('DROP SEQUENCE evenement_id_seq CASCADE');
-        $this->addSql('DROP SEQUENCE message_id_seq CASCADE');
-        $this->addSql('DROP SEQUENCE proprietes_id_seq CASCADE');
-        $this->addSql('DROP SEQUENCE reservation_id_seq CASCADE');
-        $this->addSql('DROP SEQUENCE user_id_seq CASCADE');
         $this->addSql('CREATE SEQUENCE apropos_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE avis_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE catcontrat_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
@@ -75,14 +69,6 @@ final class Version20210313194133 extends AbstractMigration
         $this->addSql('ALTER TABLE offre_secteur ADD CONSTRAINT FK_2C9E563F9F7E4405 FOREIGN KEY (secteur_id) REFERENCES secteur (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
         $this->addSql('ALTER TABLE recruteur ADD CONSTRAINT FK_2BD3678CBF396750 FOREIGN KEY (id) REFERENCES users (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
         $this->addSql('ALTER TABLE service ADD CONSTRAINT FK_E19D9AD2642B8210 FOREIGN KEY (admin_id) REFERENCES admin (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
-        $this->addSql('DROP TABLE categori');
-        $this->addSql('DROP TABLE evenement');
-        $this->addSql('DROP TABLE message');
-        $this->addSql('DROP TABLE migration_versions');
-        $this->addSql('DROP TABLE proprietes');
-        $this->addSql('DROP TABLE proprietes_categori');
-        $this->addSql('DROP TABLE reservation');
-        $this->addSql('DROP TABLE "user"');
     }
 
     public function down(Schema $schema) : void
@@ -113,21 +99,6 @@ final class Version20210313194133 extends AbstractMigration
         $this->addSql('DROP SEQUENCE secteur_id_seq CASCADE');
         $this->addSql('DROP SEQUENCE service_id_seq CASCADE');
         $this->addSql('DROP SEQUENCE users_id_seq CASCADE');
-        $this->addSql('CREATE SEQUENCE categori_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE SEQUENCE evenement_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE SEQUENCE message_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE SEQUENCE proprietes_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE SEQUENCE reservation_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE SEQUENCE user_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE categori (id INT NOT NULL, nom VARCHAR(255) NOT NULL)');
-        $this->addSql('CREATE TABLE evenement (id INT NOT NULL, iduser_id INT DEFAULT NULL, filename VARCHAR(255) NOT NULL, nom VARCHAR(255) NOT NULL, date_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, description TEXT NOT NULL)');
-        $this->addSql('CREATE TABLE message (id INT NOT NULL, iduser_id INT DEFAULT NULL, message TEXT NOT NULL, date TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, objet VARCHAR(255) NOT NULL)');
-        $this->addSql('CREATE TABLE migration_versions (version VARCHAR(14) NOT NULL, executed_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL)');
-        $this->addSql('COMMENT ON COLUMN migration_versions.executed_at IS \'(DC2Type:datetime_immutable)\'');
-        $this->addSql('CREATE TABLE proprietes (id INT NOT NULL, iduser_id INT DEFAULT NULL, filename VARCHAR(255) NOT NULL, titre VARCHAR(255) NOT NULL, acteurs VARCHAR(255) NOT NULL, description TEXT NOT NULL, prix INT NOT NULL, origine VARCHAR(255) NOT NULL, realisateur VARCHAR(255) NOT NULL, datesorti_at DATE NOT NULL, datecreation_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, producteur VARCHAR(255) NOT NULL, solde BOOLEAN DEFAULT \'false\' NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, newfilm BOOLEAN DEFAULT \'false\' NOT NULL, top_film BOOLEAN DEFAULT \'false\' NOT NULL)');
-        $this->addSql('CREATE TABLE proprietes_categori (proprietes_id INT NOT NULL, categori_id INT NOT NULL)');
-        $this->addSql('CREATE TABLE reservation (id INT NOT NULL, iduser_id INT DEFAULT NULL, idproduit_id INT DEFAULT NULL, message TEXT NOT NULL, date DATE NOT NULL)');
-        $this->addSql('CREATE TABLE "user" (id INT NOT NULL, username VARCHAR(255) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, telephone VARCHAR(255) NOT NULL)');
         $this->addSql('DROP TABLE admin');
         $this->addSql('DROP TABLE apropos');
         $this->addSql('DROP TABLE avis');
