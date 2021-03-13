@@ -1,0 +1,106 @@
+{% extends ('rh/rh_base.html.twig') %}
+
+{% block body %}
+ <div class="jumbotron  text-light text-center" style="height: 200px;background-image: url('assets/img/kaleidico-RDYdOvk8ats-unsplash.jpg');background-size: cover;background-attachment: fixed;border-radius:0px;">
+  <h1 class="mt-4" style="font-size: 61px;font-family:tw cen mt"> {{ une_offre.Titre | capitalize }} </h1>
+  <p style="font-family: Roboto, sans-serif;font-size: 30px;margin-top: -19px;">
+  </p>
+
+
+ </div>
+
+ <div class="container">
+     <div class="row">
+      <div class="card bg-dark text-white shadow-sm p-3 col-md rounded-0 ">
+         <h3 class=" text-center"> Entreprise :  <a href="" class=" "></a> </h3>
+       <h4 class="card-title text-muted"> Detail de l'offre</h4>
+
+       <div class="row bg-primary  justify-content-between">
+
+            <div class="col-md h6 text-light m-2 rounded-sm shadow-sm p-2 ">
+                <i class="fa fa-user " ></i>
+                Genre  <p>{{ une_offre.genre }} </p>
+            </div>
+           <div class="col-md h6 text-light m-2 rounded-sm shadow-sm p-2  ">
+               <i class="fa fa-anchor" ></i>
+                   Expreince <p>{{ une_offre.experience }} ans</p>
+           </div>
+           <div class="col-md  h6 text-light m-2 rounded-sm shadow-sm p-2 ">
+               <i class="fa fa-graduation-cap " ></i>
+               Niveau d'etude
+               <p class="ml-4"> BAC+ {{ une_offre.etude }}</p>
+           </div>
+           <div class="col-md- h6 text-light m-2 rounded-sm shadow-sm p-2 ">
+               <i class="fa fa-graduation-cap " ></i>
+               Nombre de poste
+               <p class="ml-4">  {{ une_offre.nombreposte }}</p>
+           </div>
+       </div>
+          <div class=" p-3  ">
+              {{ une_offre.description | raw }}
+          </div>
+
+      </div>
+      <div class="card   ml-4  p-3 shadow-lg col-lg-4 rounded-0">
+        <h5 class=" card-title text-dark"><span>Offre d'emploi récent</span> <i class="fa fa-calendar-alt text-muted"></i></h5>
+          <hr class="bg-secondary mt-0 mb-4 ">
+       <div>
+         {% for offre in offre %}
+         <p class="h6">
+          <a href="{{ path('une_offre',{id: offre.id}) }}">{{ offre.Titre | capitalize }}</a>
+         </p>
+        {% endfor %}
+       </div>
+      </div>
+     </div>
+ </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md mt-4">
+                    <h5 class="text-muted"> Offre d'emploi Relatif</h5>
+                    <div>
+                        {% for offre in offre_rel %}
+                            <div id="_hovereffect" class="card mb-3 bordered-0 shadow-sm _offre" style="  max-width:100%; width:100%">
+                                <div class="row no-gutters">
+                                    <div class="row col-md-4 justify-content-center">
+                                        <img src="images/offre/{{ offre.image }}" class="card-img  w-75  rounded-0" alt="" />
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="card-body bg-dark text-white " >
+                                            <h5 class="card-title">{{ offre.titre }}</h5>
+                                            <p class="card-text">
+                                                {{ offre.description | slice(0,50)|raw }}...
+                                            </p>
+                                            {% for s in offre.secteur %}
+                                                <small class="  text-info"> #{{ s.nom }}</small>
+
+                                            {% endfor %}
+                                            <div>
+                                                <small>Publié le : {{ offre.delai | date('m/d/Y') }} |
+                                                    {% if offre.recruteur  %}
+                                                        {{ offre.recruteur.nom }}
+                                                    {% else %}
+                                                        By admin
+                                                    {% endif %}
+                                                </small>
+                                                <a href="{{ path('une_offre',{id: offre.id}) }}" class=" float-right rounded-0 btn-sm btn-primary" >Voir plus</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+{% endblock %}

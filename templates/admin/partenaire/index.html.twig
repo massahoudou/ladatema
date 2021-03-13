@@ -1,0 +1,77 @@
+{% extends "admin/admin_base.html.twig" %}
+
+{% block body %}
+
+    <div class="container-fluid">
+
+        <div class="d-flex">
+
+            <div class="col-lg-6 mb-4">
+
+                <!-- Project Card Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Nouveaux partenaires</h6>
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(form) }}
+
+                        <div class=""> {{ form_row(form.nom) }} </div>
+                        <div class=""> {{ form_row(form.imageFile) }} </div>
+                        <button  type="submit"class="btn btn-warning rounded-0">
+                            Enregistrer
+                            <span class="fa fa-save"></span>
+                        </button>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+
+                <!-- Illustrations -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">liste des Partenaires</h6>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-warning table-bordered ">
+                            <thead class="bg-warning text-light">
+                            <tr>
+                                <td> #</td>
+                                <td>Nom </td>
+                                <td>Action</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                           {% for part in partenaire %}
+                                <tr>
+                                    <td> {{ part.id }} </td>
+                                    <td>{{ part.nom | raw  }}</td>
+                                    <td>
+                                        <a class="btn-sm text-primary" href="{{ path("admin_partenaire_update",{'id': part.id })}}"> <i class="fa fa-pencil-alt"></i></a> |
+                                        <a class="btn-sm text-primary" href="{{ path("admin_partenaire_delete",{'id': part.id })}}"> <i class="fa fa-trash-alt"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}

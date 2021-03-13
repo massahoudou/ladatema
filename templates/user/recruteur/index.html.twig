@@ -1,0 +1,123 @@
+{% extends "user/user_base.html.twig" %}
+
+{% block body %}
+{% if is_granted('ROLE_REC') %}
+    	<div class="jumbotron" >
+
+
+
+		<div class="container-fluid">
+			<div class="row">
+            
+            {% include "user/recruteur/_menu.html.twig" %}
+				<div class="col-md-6 col-lg-8 col-xl-8">
+					<div class=" mt-4">
+						{% for message in app.flashes('recruteur_offre') %}
+							<div class="alert alert-success">
+								{{ message  }}
+							</div>
+						{% endfor %}
+						{% for message in app.flashes('edition') %}
+							<div class="alert alert-warning">
+								{{ message  }}
+							</div>
+						{% endfor %}
+						{% for message in app.flashes('delete') %}
+							<div class="alert alert-danger">
+								{{ message  }}
+							</div>
+						{% endfor %}
+
+						<h4>profil</h4>
+						<div class=" card shadow-sm" style="" >
+							<div class="card-header">
+
+								<a  href="{{ path('recru_offre') }}" class=" rounded-0 btn-sm btn-primary text-white ">Nouvel offre
+									<span>
+                   				 <i class="fa fa-plus"></i>
+                				</span></a>
+								<a  href="{{ path('modification') }}" class=" rounded-0 btn-sm btn-danger text-white ">Modifier les informations
+									<span>
+                   				 <i class="fa fa-user-circle"></i>
+                				</span></a>
+
+								<a  href="{{ path('logout') }}" class=" float-right rounded-0 btn-sm  btn-dark ">Déconnection
+									<span>
+                    <i class="fa fa-user"></i>
+                </span></a>
+
+							</div>
+							<div class="card-body m-0 p-2">
+								<div class="row">
+
+									<div class="col">
+										<img class="" src="images/users/{{ app.user.image }}" alt="{{ app.user.image }}" title="{{ app.user.nom }}"/>
+									</div>
+									<div class=" col-md ">
+										<div class="p-2">
+											Nom  de l'entreprise:
+											<span class="font-weight-bold text-capitalize">
+                                                {{ app.user.nomemtreprise}}
+										</span>
+										</div>
+										<div class="p-2">
+											Site web :
+											<span class="font-weight-bold ">
+
+                                        <a href="https://{{ app.user.siteweb }}" onclick="window.open(this.href);return false">
+                                         {{ app.user.siteweb }}
+                                         </a>
+										</span>
+										</div>
+										<div class="p-2">
+											telephone :
+											<span class="font-weight-bold text-capitalize">
+                                            {{   app.user.contact }}
+										</span>
+										</div>
+										<div class="p-2">
+											Matricule :
+											<span class="font-weight-bold text-capitalize">
+											{{ app.user.numimatricul}}
+										</span>
+										</div>
+									</div>
+									<div class="col-md">
+										<div class="p-2">Démarré le :
+											<span class="font-weight-bold text-capitalize">
+										</span>
+										</div>
+										<div class="p-2">
+											Adresse :<span class="font-weight-bold text-capitalize">
+                                        {{ app.user.Adresse}}
+										</span>
+										</div>
+										<div class="p-2">
+											Email :<span class="font-weight-bold text-capitalize">
+                                        {{ app.user.Email}}
+										</span>
+										</div>
+									</div>
+
+								</div>
+								<div class="">
+									<a href="" class="btn-sm rounded-0  btn-outline-primary">modifier</a>
+								</div>
+							</div>
+
+						</div>
+						{% include"user/recruteur/list.html.twig" %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+
+	</div>
+
+    {% else %}
+        
+{% endif %}
+
+</div>{% endblock %}

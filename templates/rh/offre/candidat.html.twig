@@ -1,0 +1,171 @@
+{% extends 'rh/rh_base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron _finance text-light text-center" style="height: 300px;background-image: url('assets/img/kaleidico-RDYdOvk8ats-unsplash.jpg');background-size: cover;background-attachment: fixed;border-radius:0px;">
+        <h1 class="mt-5" style="font-size: 50px;font-family:tw cen mt,font-weight:300;"><span class="">RECHERCHER</span>&nbsp;UN EMPLOI<br></h1>
+        <div class=" row  text-center justify-content-center">
+            <div class="col-md col-lg-4">
+                {{ form_start (form , {attr: {class: 'filter'}}) }}
+                {{ form_row(form.q, {attr: {class: 'filter rounded-0 '}}) }}
+            </div>
+
+            <div class="">
+                <button type="submit"  class="btn  btn-primary rounded-0 pl-4 pr-4" >
+                    <span>
+                      <i class="fa  fa-search "></i>
+                     </span>
+                </button>
+            </div>
+        </div>
+        <div class="h4  text-center">
+           <span class="btn btn-danger rounded-pill">{{ offres.getTotalItemCount }}</span>  offres d'emploi trouvées
+        </div>
+
+    </div>
+    <div><div class="">
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-xl-3 offset-sm-0">
+
+
+            <button type="submit" class="col-md  mb-3 btn-outline-primary btn rounded-0">Filtrer</button>
+            <div class="card mb-3    shadow-sm  rounded-0" {# style="background-image: linear-gradient(to top right, #3d5c5c 0%, #00001a 113%);"#}>
+                <h5 class="ml-3">
+                    Pays & Salaire
+                </h5>
+                <div class="card-body">
+                 {{ form_row(form.pays)}}
+                  <div class="row">
+                       <div class="col-md"> {{ form_row(form.min )}}</div>
+                        <div class="col-md">{{ form_row(form.max)}}</div>
+                    </div>
+                    <div id="slider" data-min="{{ min }}" data-max="{{ max }}" style=""></div>
+                </div>
+        
+               <h5 class="ml-3 text-bold">
+                    Secteur d'activité
+                    <hr class="bg-light">
+                </h5>
+                <div class="card-body  p-0">
+                    <div class="form-check" >
+                        {{ form_row(form.secteur, {attr: {class: 'filter'}}) }}
+                    </div>
+                </div>
+
+               <h5 class="ml-3">
+                   Type de Contrat
+                    <hr class="bg-light">
+                </h5>
+                <div class="card-body p-0">
+                    <div class="form-check ">
+                        {{ form_row(form.categorie, {attr: {class: 'filter'}}) }}
+                    </div>
+                </div>
+                <h5 class="ml-3">
+                   NIveau d'etude
+                    <hr class="bg-light">
+                </h5>
+                <div class="card-body p-0">
+                    <div class="form-check ">
+                        {{ form_row(form.etud, {attr: {class: 'filter'}}) }}
+                    </div>
+                </div>
+                <h5 class="ml-3">
+                   NIveau d'exprérience
+                    <hr class="bg-light">
+                </h5>
+                <div class="card-body p-0">
+                    <div class="form-check ">
+                        {{ form_row(form.exp, {attr: {class: 'filter'}}) }}
+                    </div>
+                </div>
+            </div>
+
+            {{ form_end(form) }}
+                   <div class="card mb-3  _card1  " style="">
+                       <div class="card-body text-light  text-center  mb-3 mt-3">
+                           <h3> Voir La CV thèque </h3><br>
+                           <p class="text-primary">Cliquez-ici<p>
+                           <div class="">
+                               <span>
+                                   <i class="fa fa-facebook"></i>
+                               </span>
+                                  <span>
+                                   <i class="fa fa-twitter"></i>
+                               </span>
+                               <span>
+                                   <i class="fa fa-youtube"></i>
+                               </span>
+                            
+                           </div>
+                       </div>
+                  </div>
+        </div>
+        <div class=" col-md col-xl-7">
+            <div class="d-flex flex-wrap justify-content-end ">
+                <div class="pl-2">
+                    {{ knp_pagination_sortable(offres, 'Salaire', 'o.salaire') }}
+                </div>
+
+                <div class="pl-2">
+                    {{ knp_pagination_sortable(offres, 'Titre', 'o.titre') }}
+                </div>
+            </div>
+            <div class="d-flex flex-wrap ">
+            {% for offre in offres %}
+            <div id="_hovereffect" class="card mb-3 bordered-0 shadow-sm _offre" style="  max-width:100%; width:100%">
+                 <div class="row no-gutters">
+                    <div class="row col-md-4 justify-content-center">
+                        <img src="images/offre/{{ offre.image }}" class="card-img  w-75  rounded-0" alt="" />
+                    </div>
+                    <div class="col-md">
+                        <div class="card-body bg-dark text-white " >
+                            <h5 class="card-title">{{ offre.titre }}</h5>
+                            <p class="card-text">
+                                {{ offre.description | slice(0,50)|raw }}...
+                            </p>
+                            {% for s in offre.secteur %}
+                             <small class="  text-info"> #{{ s.nom }}</small>
+
+                            {% endfor %}
+                            <div>
+                                <small>Publié le : {{ offre.delai | date('m/d/Y') }} |
+                                    {% if offre.recruteur  %}
+                                        {{ offre.recruteur.nom }}
+                                    {% else %}
+                                        By admin
+                                    {% endif %}
+                                </small>
+                                <a href="{{ path('une_offre',{id: offre.id}) }}" class=" float-right rounded-0 btn-sm btn-primary" >Voir plus</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+             </div>
+                {% endfor %}
+                <div class="">
+                    {{ knp_pagination_render(offres) }}
+                </div>
+
+                 {#  <nav aria-label="..." class="">
+                  <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1"><i class="fa fa-chevron-left text-secondary"></i></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active">
+                      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#"><i class="fa fa-chevron-right text-secondary"></i></a>
+                    </li>
+                  </ul>
+                </nav>#}
+
+            </div>
+ 
+        </div>
+    </div>
+</div></div>
+{% endblock %}

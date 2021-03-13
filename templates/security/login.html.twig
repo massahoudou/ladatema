@@ -1,0 +1,98 @@
+{% extends 'rh/rh_base_con.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+ <div class="jumbotron _finance text-center" style="height: 770px;background-image: url('assets/img/kaleidico-RDYdOvk8ats-unsplash.jpg');background-size: cover;background-attachment: fixed;border-radius: 0px;"><div class="container   pb-4" style="margin-top :100px">
+    <div class="row justify-content-center">
+        <div class="card col-md-5 shadow-sm">
+            <h3 class="  text-muted ">Veuillez-Vous <span class="text-info">Connectez</span></h3><hr>
+             <small class="text-muted ">*Veuillez renseigné les champs*</small>
+            <div class="card-body">
+             <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    {% if app.user %}
+                        <div class="mb-3">
+                           Vous etes connceté au nom de  {{ app.user.username }}, <a href="{{ path('logout') }}">Deconnection</a>
+                        </div>
+                    {% endif %}
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-info" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+                        </div>
+                          <input type="text" value="{{ last_username }}" name="email" id="inputEmail" placeholder="Votre Email" aria-label="Votre mail" aria-describedby="basic-addon1" class="form-control" required autofocus>
+                    </div> 
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                         <span class="input-group-text text-info" id="basic-addon2"><i class="fas fa-unlock"></i></span>
+                         </div>
+                           <input type="password" name="password" id="inputPassword" placeholder="Mot de passe" aria-label="Mot de passe" aria-describedby="basic-addon2" class="form-control" required>
+                    </div>  
+
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                    
+                        {# Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                        See https://symfony.com/doc/current/security/remember_me.html #}
+
+                        <div class="form-check">
+                         <input class="form-check-input" type="checkbox" name="_remember_me">
+                            <label class="form-check-label">
+                               Se souvenir de moi
+                            </label>
+                        </div>
+                   
+                    <div class="row ml-1"> 
+                        <button type="submit" style="border-radius:0px"  class="btn btn-success text-light shadow-sm">connexion</button>                    
+                        <a class="btn float-right text-right text-danger"> <small> Mot de passe oublier?  </small> </a>
+                   
+                    </div>
+               <!-- </form>
+               <form action="" method="post" >
+                     {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.username }}, <a href="{{ path('logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-danger" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input type="text"  name="_username"class="form-control"  value="{{ last_username }}" placeholder="Votre Email" aria-label="Votre mail" aria-describedby="basic-addon1">
+                </div> 
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-danger" id="basic-addon2"><i class="fas fa-unlock"></i></span>
+                    </div>
+                    <input type="password" name="_password" class="form-control" placeholder="Mot de passe" aria-label="Mot de passe" aria-describedby="basic-addon2">
+                </div>
+
+
+                <div class="row ml-1"> 
+                    <button type="submit" style="border-radius:0px"  class="btn btn-success text-light shadow-sm">connexion</button>                    
+                        <a class="btn float-right text-right text-danger"> <small> Mot de passe oublier?  </small> </a>
+                   
+                </div>
+               </form>-->
+               
+            </div>
+            
+            </div>
+            
+            
+           
+        </div>
+    </div>
+    
+    
+</div></div>
+{% endblock %}

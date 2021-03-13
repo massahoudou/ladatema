@@ -1,0 +1,63 @@
+{% extends "admin/admin_base.html.twig" %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        {% for message in app.flashes('utilisateur_spp') %}
+            <div class="alert alert-info">
+                {{ message  }}
+            </div>
+        {% endfor %}
+    <table class="table table-hover  table-bordered">
+        <thead>
+        <tr class="bg-danger text-light">
+            <td>#</td>
+            <td>Type</td>
+            <td>Nom</td>
+            <td>Prenom</td>
+            <td>Email</td>
+            <td>supprimer</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>
+                {%  if 'ROLE_CAN' in user.roles  %}
+                    <span class="text-success">Candidat</span>
+                {% elseif 'ROLE_REC' in user.roles %}
+                  <span class="text-warning">Recruteur</span>
+                {% elseif 'ROLE_ADMIN' in user.roles %}
+                        <span class="text-danger">Admin</span>
+                {% endif %}
+            </td>
+            <td>{% if user.nom is  defined %}
+                    {%  if 'ROLE_CAN' in user.roles  %}
+                       {{ user.nom }}
+                    {% elseif 'ROLE_REC' in user.roles %}
+                      {{ user.nom }}
+                    {% endif %}
+                {% else %}
+                    ---
+                {% endif %}</td>
+            <td>{% if user.prenom is  defined %}
+                    {%  if 'ROLE_CAN' in user.roles  %}
+                        {{ user.prenom }}
+                    {% elseif 'ROLE_REC' in user.roles %}
+                        {{ user.prenom }}
+                    {% endif %}
+                {% else %}
+                    ---
+                {% endif %}</td>
+            <td>{{ user.email }}</td>
+            <td>
+                <a href="{{ path('userdelete',{id: user.email}) }}" onsubmit="alert('Voulez vous vraiment supprimer ??')">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

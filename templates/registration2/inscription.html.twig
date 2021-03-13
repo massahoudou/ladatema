@@ -1,0 +1,26 @@
+{% extends'registration2/inscriptionbase.html.twig' %}
+
+{% block body %}
+
+
+    <div class="container   pb-4" style="margin-top :100px">
+            <div class="row justify-content-between">
+                <div class="card col-md-5 m-4 shadow-sm">
+                    <div class="card-body text-center">
+                        <h4 class="card-title _card-title">Vous êtes Candidat</h4>
+                        <h6 class="text-primary card-subtitle  font-weight-bolder mb-2">
+                            <a href="{{ path('app_register_candidat')}}">Cliquez-ici</a></h6>
+                        <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p></div>
+                </div>
+                <div class="card col-md-5 m-4 shadow-sm">
+                    <div class="card-body text-center">
+                        <h4 class="card-title _card-title">Vous êtes Recruteur </h4>
+                        <h6 class="text-primary card-subtitle  font-weight-bolder mb-2">
+                            <a href="{{ path('app_register_recruteur')}}">Cliquez-ici</a></h6>
+                        <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p></div>
+                </div>
+            </div>
+
+    </div>
+
+{% endblock %}

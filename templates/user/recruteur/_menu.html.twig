@@ -1,0 +1,47 @@
+	<div class="col-md-6 col-lg-4 col-xl-3">
+					<div id="sidebar-main" class="sidebar sidebar-default sidebar-separate ">
+						<div class=" mt-4 sidebar-category sidebar-default " style="border:0px">
+							<div class="category-title">
+								<span>
+									Menu</span>
+							</div>
+							<div class="category-content">
+								<ul id="fruits-nav" class="nav flex-column">
+									<li class="nav-item">
+										<a href="{{ path('recruteur') }}" class="nav-link">
+											<i class="fa fa-folder-open" aria-hidden="true"></i>
+											Acceuil
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="{{ path('recru_offre' ,{'id': app.user.email } ) }}" class="nav-link">
+											<i class="fa fa-folder-open" aria-hidden="true"></i>
+											Nouvel
+										</a>
+									</li>
+
+									<li class="nav-item">
+										<a href="#other-fruits" class="nav-link" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="other-fruits">
+											<i class="fa fa-folder-open" aria-hidden="true"></i>
+											Mes indentifiants
+										</a>
+										<ul id="other-fruits" class="flex-column collapse">
+											<li class="nav-item">
+												<a href="#" class="nav-link">
+													<i class="fa  fa-folder" aria-hidden="true"></i>
+													mot de passe
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="{{ path('modification') }}" class="nav-link">
+													<i class="fa fa-folder" aria-hidden="true"></i>
+													Completer votre profile
+												</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>

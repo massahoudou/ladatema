@@ -1,0 +1,26 @@
+{% extends 'user/user_base.html.twig' %}
+
+{%  block body  %}
+
+    {% if is_granted('ROLE_REC') %}
+    <div class="jumbotron">
+        <div class="row">
+
+            {% include "user/recruteur/_menu.html.twig" %}
+
+            <div class="col-md-6 col-lg-8 col-xl-8">
+                <div class=" ">
+                    <h4>Modifier vos information  et completer votre profile </h4>
+                    <div class=" p-4 bg-white shadow-sm" style="font-family:tw cen mt">
+                        {% include "/user/recruteur/_form2.html.twig" %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% else %}
+{% endif %}
+{% endblock %}

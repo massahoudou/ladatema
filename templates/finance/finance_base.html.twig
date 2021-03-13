@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<title>LADATEMABOOT</title>
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius+Swash+Caps">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hepta+Slab">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab">
+		<link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+		<link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+		<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+		<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+		<link rel="stylesheet" href="assets/css/Pretty-Footer.css">
+		<link rel="stylesheet" href="assets/css/Sidebar-1-1.css">
+		<link rel="stylesheet" href="assets/css/Sidebar-1.css">
+		<link rel="stylesheet" href="assets/css/styles.css">
+		<style>
+			.pop_img_bg {
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100vh;
+				background: rgba(0, 0, 0, 0.5);
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+			}
+			.pop_img {
+				width: 70vw;
+				max-height: 80vh;
+				overflow: hidden;
+				border: 2px solid white;
+			}
+			.pop_img img {
+				max-width: 100%;
+				min-width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-light navbar-expand-md shadow-sm">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#" style="font-size: 25px;margin-left: 126px;font-weight:bold;">
+                                        <img  class="w-25" style="" src="{{ asset('assets/img/logo/logo.png') }}" alt="" title="LADATEMA RESAERCH">
+                </a>
+				<button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navcol-1">
+					<ul class="nav navbar-nav ml-auto" style="margin-right: 106px;font-family:tw cen mt;">
+						<li class="nav-item" role="presentation">
+							<a class="nav-link " href="{{ path('finance_home') }}">Accueil</a>
+						</li>
+						<li class="nav-item" role="presentation">
+							<a class="nav-link " href="{{ path('finance_propos') }}">A propos</a>
+						</li>
+						<li class="nav-item" role="presentation">
+							<a class="nav-link t" href="{{ path('finance_service') }}">Nos Services</a>
+						</li>
+						<li class="nav-item" role="presentation">
+							<a class="nav-link " href="{{ path('finance_contact') }}">Contact</a>
+						</li>
+						{# <li class="nav-item" role="presentation">
+							<a class="nav-link " href="{{ path('gallery') }}">Gallery</a>
+						</li> #}
+						<li class="nav-item" role="presentation">
+							<a class="nav-link text-primary" href="{{ path('rh_home') }}">RH</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		{% block body %}{% endblock %}
+		{% include'footerbase.html.twig' %}
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/js/Card-Carousel.js"></script>
+		<script>
+			$(".gallery a").click(function (event) {
+var pop_img = $(this).attr('href');
+$("body").append('<div id="close"class="pop_img_bg "> <div class="pop_img"> <img src="' + pop_img + '" /></div> </div>');
+
+return false
+});
+$('.pop_img_bg').click($('.pop_img_bg').remove())
+$(".pop_img").click(function (event) {
+return false;
+});
+		</script>
+	</body>
+</html>

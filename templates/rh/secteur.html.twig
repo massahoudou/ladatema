@@ -1,0 +1,15 @@
+{% for secteur in secteurs  %}
+<div class=" card item text-center shadow-sm " >
+    <div class="card-img p-3 "> ICON</div>
+    <div class="card-body  bg-primary text-white" style="max-height: 100px; height: 100px"  >
+        <h6 class="">{{ secteur.nom }}</h6>
+        <p class="card-text">
+            {%  set count =0  %}
+            {% for offres in secteur.offres %}
+                {% set count= count + 1 %}
+            {% endfor %}
+            ({{ count }})
+        </p>
+    </div>
+</div>
+{% endfor %}

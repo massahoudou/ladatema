@@ -1,0 +1,202 @@
+footer {
+  background-color: #292c2f;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: bold 16px sans-serif;
+  padding: 55px 50px;
+  margin-top: 80px;
+  bottom: 0;
+  color: #fff;
+}
+
+.footer-navigation h3 {
+  margin: 0;
+  font: normal 36px Cookie, cursive;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.footer-navigation h3 a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer-navigation h3 span {
+  color: #5383d3;
+}
+
+.footer-navigation p.links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-navigation p.company-name {
+  color: #8f9296;
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 20px;
+}
+
+@media (max-width:767px) {
+  .footer-contacts {
+    margin: 30px 0;
+  }
+}
+
+.footer-contacts p {
+  display: inline-block;
+  color: #ffffff;
+  vertical-align: middle;
+}
+
+.footer-contacts p a {
+  color: #5383d3;
+  text-decoration: none;
+}
+
+.fa.footer-contacts-icon {
+  background-color: #33383b;
+  color: #fff;
+  font-size: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 38px;
+  margin: 10px 15px 10px 0;
+}
+
+span.new-line-span {
+  display: block;
+  font-weight: normal;
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.footer-about h4 {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-about p {
+  line-height: 20px;
+  color: #92999f;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 0;
+}
+
+div.social-links {
+  margin-top: 20px;
+  color: #fff;
+}
+
+.social-links a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.mt-5._service .jumbotron {
+  background-color: rgba(206,220,242,0.22);
+}
+
+.row._contact input[type="text"] {
+}
+
+@media (min-width: 300px) {
+  .row._contact2 p {
+    font-size: 14px;
+  }
+}
+
+.row._contact2.justify-content-center {
+}
+
+@media (min-width: 300px) {
+  #_ct {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 576px) {
+  #_ct {
+    font-size: 40px;
+  }
+}
+
+.row._contact {
+  justify-content: center;
+}
+
+#carousel-1 {
+}
+
+@media (max-width: 300px) {
+  ._cc h1 {
+    font-size: 1px;
+  }
+}
+
+._cc p {
+  font-size: 15px;
+}
+
+@media (min-width: 300px) {
+  .text-left.carousel-caption._cc p {
+    font-size: 8px;
+    width: 180px;
+  }
+}
+
+@media (min-width: 300px) {
+  .text-left.carousel-caption._cc h1 {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 576px) {
+  .text-left.carousel-caption._cc p {
+    font-size: 15px;
+    width: 400px;
+  }
+}
+
+@media (min-width: 992px) {
+  .text-left.carousel-caption._cc h1 {
+    font-size: 46px;
+  }
+}
+
+@media (min-width: 992px) {
+  .text-left.carousel-caption._cc p {
+    font-size: 20px;
+    width: 600px;
+  }
+}
+
+@media (min-width: 768px) {
+  .text-left.carousel-caption._cc h1 {
+    font-size: 56px;
+  }
+}
+
+.row._search.text-center.justify-content-center {
+}
+

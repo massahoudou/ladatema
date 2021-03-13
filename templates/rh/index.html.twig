@@ -1,0 +1,165 @@
+{% extends 'rh/rh_base.html.twig' %}
+{% block body %}
+    <div class="jumbotron _finance text-light text-center" style="height: 300px;background-image: url('assets/img/kaleidico-RDYdOvk8ats-unsplash.jpg');background-size: cover;background-attachment: fixed;border-radius:0px;">
+        <h1 class="mt-5" style="font-size: 61px;font-family:tw cen mt"><span class="text-primary">LADA</span>&nbsp;RH<br></h1>
+        <p style="font-family: Roboto, sans-serif;font-size: 30px;margin-top: -19px;">Trouver de l'emploi sur notre plateforme</p>
+        {{ form_start(form) }}
+  <div class="row justify-content-center">
+
+      <div class="row col-md col-lg-6">
+         <div class="col-md ">{{ form_row(form.q) }}</div>
+          <div class="col-md ">{{ form_row(form.pays) }}</div>
+      </div>
+      <div class="">
+          <button type="submit"  class="btn  btn-primary rounded-0 pl-4 pr-4" >
+                    <span>
+                      <i class="fa  fa-search "></i>
+                     </span>
+          </button>
+      </div>
+  </div>
+        {{ form_end(form) }}
+
+
+
+</div>
+    <div>
+         <h1 class="text-center" style="font-family:tw cen mt" ><span class="text-primary">JOB</span> secteurs</h1>
+        <div class=" mt-4 overflow-hidden   ">
+            <div class="container  ">
+                <div class="owl-carousel owl-theme">
+                    {% include('/rh/secteur.html.twig') %}
+                </div>
+                <!--<div class="card m-5 col-md-2 text-center " >-->
+                </div>
+
+             </div>
+        </div>
+    </div>
+     <h1  style="font-family:tw cen mt"class="text-center"><span class="text-primary">Nos</span> Dèrnières Offres</h1>
+    <div class="jumbotron">
+    <div class="container">
+        <div class="d-flex flex-wrap ">
+        {% for offre in offres %}
+          <!--  <div class="card mb-3 col-lg-6 rounded-0 p-0" style="  max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4"><img src="..." class="card-img" alt="..." /></div>
+                    <div class="col-md-8">
+                        <div class="card-body  p-2 ">
+                            <h6 class="card-title  text-dark p-0">{{ offre.Titre | capitalize }}- [{{ offre.nombreposte }}]</h6>
+                            <p class="text-capitalize text-dark">{{ offre.description | slice(0,80) | raw  }}...</p>
+                            <a class="nav-link" href="{{ path('finance_home') }}">@Ladatema</a>
+                            {# <p class="card-text">{{ offre.Description}}</p>#}
+                            {# <p class="text-primary">Niveaux d'etude : {{ offre.etude}} <br> Exprience : {{ offre.experience}}  </p>  #}
+                            <small>Publié le : {{ offre.delai | date('m/d/Y') }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div class="card mb-3 ml-2 col-lg-6 rounded-0 p-0" style="  max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="images/offre/{{ offre.image }}" class="card-img  m-2 rounded-0" alt="" /></div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h6 class="card-title  text-dark p-0">{{ offre.Titre | capitalize }} - <small class="btn-danger btn-sm rounded-circle ml-3 ">{{ offre.nombreposte }}</small></h6>
+                            <small><p> {{ offre.description | slice(0,50)| raw   }}..</p></small>
+                            <a href="">@Ladatema</a>
+                            {# <p class="card-text">{{ offre.Description}}</p>#}
+                            {# <p class="text-primary">Niveaux d'etude : {{ offre.etude}} <br> Exprience : {{ offre.experience}}  </p>  #}
+                            <div>
+                                <small>Publié le : {{ offre.delai | date('m/d/Y') }} |
+                                    {% if offre.recruteur  %}
+                                        {{ offre.recruteur.nom }}
+                                    {% else %}
+                                        By admin
+                                    {% endif %}
+                                </small>
+                                <a href="{{ path('une_offre',{id: offre.id}) }}" class=" float-right rounded-0 btn-sm btn-primary" >Voir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+        {% endfor %}
+        </div>
+    </div>
+    <div class="text-center" style="padding-top: 19px;"><a  href="{{ path('rh_offre')}}" class="btn btn-primary rounded-0 btn-lg shadow-sm" type="button" style="margin-right: 0;margin-left: 0;"><span style="padding-left: -4px;padding-right: 7px;">Toutes nos offres</span><i class="fa fa-sticky-note-o"></i></a></div>
+</div>
+</div>
+<div class="text-center">
+    <a class="_btn rounded-pill text-white " href="{{ path("login")}}">Inscriver-vous dès maintenant !</a>
+</div>
+<div class="mt-5">
+      <h1  style="font-family:tw cen mt"class="text-center"><span class="text-primary">Nos</span> Dèrniers Profils</h1>
+    
+    <div class="jumbotron">
+    <div class="container">
+        <div class="d-flex flex-wrap ">
+            <div class="card rounded-0 mb-3 shadow-sm" style="  max-width: 540px;
+">
+                <div class="row no-gutters">
+                    <div class="col-md-4 rounded-0"><img src="{{ asset('assets/img/avatar-profile.png') }}" class="card-img" alt="..." /></div>
+                    <div class="col-md-8 m-0 p-0 ">
+                        <div class="card-body">
+                            <h6 class="card-title"> Experience Profeessionnel : </h6>
+                             <h6 class="card-title">Secteur d'activité :</h6>
+                             <h6 class="card-title"> Formation:</h6>
+                            <h6 class="card-title"> competence:</h6>
+                            <p class="card-text"><small class="text-muted">Mis a jour 3 min plus tard </small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card rounded-0 mb-3 shadow-sm" style="  max-width: 540px;
+">
+                <div class="row no-gutters">
+                    <div class="col-md-4 rounded-0"><img src="{{ asset('assets/img/avatar-profile.png') }}" class="card-img" alt="..." /></div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h6 class="card-title"> Experience Profeessionnel : </h6>
+                            <h6 class="card-title">Secteur d'activité :</h6>
+                            <h6 class="card-title"> Formation:</h6>
+                            <h6 class="card-title"> competence:</h6>
+                            <p class="card-text"><small class="text-muted">Mis a jour 3 min plus tard </small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    <div class="text-center" style="padding-top: 19px;"><a href="{{ path('rh_cv') }}" class="btn btn-primary btn rounded-0  shadow-sm" type="button" style="margin-right: 0;margin-left: 0;"><span style="padding-left: -4px;padding-right: 7px;">Touts Nos profils</span><i class="fa fa-sticky-note-o"></i></a></div>
+</div>
+</div><div class="jumbotron bg-dark p-2 m-0" style="margin-bottom: -50px">
+    <div class="container">
+        <h1 style="font-family:tw cen mt ; font-size:35px" class="text-white text-bolder  pt-4">les Entreprises qui recrutent</h1>
+
+        <div class="d-flex flex-wrap justify-content-center">
+            <div class="col-md">
+                <div class="d-flex flex-wrap  mt-2">
+                    <div class="owl-carousel owl-theme">
+                            {% for recruteur in recruteur %}
+                            <div class=" text-center  " >
+                                    <div class="card-img text-center "  >
+                                        <img class="w-50" src="images/users/{{ recruteur.image }}" alt="{{ recruteur.nom }}">
+                                    </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+               
+            </div>
+             
+        </div>
+        <div class="text-center mt-5">
+                    <button class="btn btn-primary rounded-0" type="button">Voir plus <i class="fa fa-plus"> </i></button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+
+
+{% endblock %}

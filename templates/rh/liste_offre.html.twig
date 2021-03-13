@@ -1,0 +1,105 @@
+{% extends 'rh/rh_base.html.twig' %}
+{% block body %}
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-lg-4 col-xl-3"><div id="sidebar-main" class="sidebar sidebar-default sidebar-separate ">
+    <div class=" mt-4 sidebar-category sidebar-default " style="border:0px">
+        <div class="category-title">
+          <span>  Menu</span>
+        </div>
+        <div class="category-content">
+            <ul id="fruits-nav" class="nav flex-column">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa fa-folder-open" aria-hidden="true"></i> Mes offres
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa fa-folder-open" aria-hidden="true"></i> Nouvel
+                    </a>
+                </li>
+               
+                <li class="nav-item">
+                    <a href="#other-fruits" class="nav-link" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="other-fruits">
+                        <i class="fa fa-folder-open" aria-hidden="true"></i> Mes indentifiants
+                    </a>
+                    <ul id="other-fruits" class="flex-column collapse">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa  fa-folder" aria-hidden="true"></i> ...
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-pencil" aria-hidden="true"></i> ...
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div></div><div class="col-md-6 col-lg-8 col-xl-8">
+    <div class=" mt-4">
+        <h4>Liste</h4>
+        <div class=" p-4 bg-white shadow-sm" style="font-family:tw cen mt" >
+            <div class="clearfix">
+                   <div class="float-right d-flex flex-wrap pb-3">
+                       <a class="btn-sm btn-success text-light m-1"> <span>Nouvel </span><i class="fa fa-newspaper"> </i></a>
+                       
+            </div>
+            </div>
+         
+ <table class="table table-bordered table-striped ">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Titre </th>
+      <th scope="col">description</th>
+      <th scope="col">date</th>
+        <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Technicien</td>
+      <td>Petite description</td>
+      <td>1-12-20</td>
+        <td>
+            <a class="text-danger"><i class="fa fa-trash"></i> <span> </span></a>|
+             <a class="text-success"><i class="fa fa-pencil"></i> <span> </span></a>
+        </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Enseignant</td>
+      <td>petite description</td>
+        <td>1-12-20</td>
+        <td>
+            <a class="text-danger"><i class="fa fa-trash"></i> <span> </span></a>|
+             <a class="text-success"><i class="fa fa-pencil"></i> <span> </span></a>
+        </td>
+    </tr>
+     <tr>
+      <th scope="row">3</th>
+      <td>Enseignant</td>
+      <td>petite description</td>
+        <td>1-12-20</td>
+        <td>
+            <a class="text-danger"><i class="fa fa-trash"></i> <span> </span></a>|
+            <a class="text-success"><i class="fa fa-pencil"></i> <span> </span></a>
+        </td>
+    </tr>
+  </tbody>
+</table>
+            
+        </div>
+       
+    </div>
+</div></div>
+        </div>
+    </div>
+{% endblock %}

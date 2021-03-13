@@ -1,0 +1,20 @@
+{% extends "rh/rh_base_user.html.twig" %}
+
+ {% block body %}
+     <div class="jumbotron">
+     <div class="container-fluid">
+     <div class="row">
+     <div class="col-md-6 col-lg-4 col-xl-3">
+         <div id="sidebar-main" class="sidebar sidebar-default sidebar-separate ">
+             {% include'user/candidat/menu.html.twig' %}
+         </div>
+     </div><div class="col-md-6 col-lg-8 col-xl-8">
+     <div class=" mt-4">
+         <h4>Ajouter une Competence </h4>
+         <div class="card">
+             <div class="card-body">
+                 {% include 'user/candidat/_form2.html.twig' %}
+             </div>
+         </div>
+     </div>
+ {% endblock %}

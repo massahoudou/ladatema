@@ -1,0 +1,98 @@
+{% extends 'finance/finance_base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron _finance text-light text-center" style="height: 340px;background-image: url('assets/img/christina-wocintechchat-com-rg1y72eKw6o-unsplash.jpg');background-size: cover;background-attachment: fixed;border-radius: 0px;">
+        <h1 class="mt-5" style="font-size: 61px;font-family:tw cen mt"><span class="text-primary">Contacter</span>-Nous</h1>
+    </div>
+    {#  <div class="jumbotron" style="background-color: rgba(0,0,0,0);">
+        <div class="_contact_tips" style="border-left: 5px solid rgb(0,123,255);margin-top: 0;margin-left: 0;">
+            <p style="font-size: 22px;"><span><i class="fa fa-map-marker pr-3" style="font-size: 24px;"></i></span>Agoé , Minamadou 2</p>
+            <p style="font-size: 22px;"><i class="fa fa-mobile-phone pr-3" style="font-size: 24px;"></i>+228 93 24 05 84</p>
+            <p style="font-size: 22px;"><i class="fa fa-envelope pr-3" style="font-size: 24px;"></i>ladatema@gmail.com</p>
+        </div>
+    </div>#}
+    <div class="container-fluid pb-5">
+        <div class="row justify-content-around">
+
+                <div class="card  p-3 col-md-2 col-lg-3 border-0 shadow-lg bg-primary rounded-0">
+                    <div class=" text-center text-light ">
+                        <i class="fa fa-map-marker " style="font-size: 50px;"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="text-light " style="font-size: 19px;">Agoé , Minamadou 2</p>
+                    </div>
+                </div>
+
+            <div class="card p-3 col-md-2 col-lg-3 border-0 shadow-lg  bg-primary rounded-0">
+                <div class="  text-center text-light  ">
+                      <div class="rounded-circle ">
+                          <i class="fa fa-mobile-phone " style="font-size: 50px;"></i>
+                      </div>
+                </div>
+                <div class="card-body text-center">
+                    <p class="text-light " style="font-size: 19px;">+(+228) 99 18 72 96</p>
+                </div>
+            </div>
+            <div class="card p-3 col-md-2 col-lg-3 border-0 shadow-lg bg-primary rounded-0">
+                <div class="   text-center text-light">
+                 <i class="fa fa-mobile-phone " style="font-size: 50px;"></i>
+                </div>
+                <div class="card-body text-center">
+                    <p class="text-light"style="font-size: 19px;"> info@ladatemaresearch.com</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <iframe  width="100%" height="300"  src="https://www.google.com/maps/d/u/0/embed?mid=1hi_QUQsMOzNwDil1Cv_LTQAwYnb-ddMo"></iframe>
+<div class="jumbotron  p-3 " style="">
+    <div class="row justify-content-center ">
+        <div class="col-md-5">
+            {{ form_start(form) }}
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text text-primary" id="basic-addon2"><i class="fas fa-user-alt"></i></span>
+                </div>
+               {{ form_widget(form.nom) }}
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text text-primary" id="basic-addon2"><i class="fas fa-envelope"></i></span>
+                </div>
+                {{ form_widget(form.email) }}
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text text-primary" id="basic-addon2"><i class="fas fa-phone"></i></span>
+                </div>
+                {{ form_widget(form.telephone) }}
+            </div>
+
+
+        </div>
+        <div class="col-md-5">
+            {{ form_row(form.message) }}
+            <button class="btn btn-primary mt-4" type="submit"> <span>
+                   Envoyer </span> <i class="fa fa-paper-plane"></i></button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+</div>
+    </div>
+
+   {#
+   <div style="background-image:url('assets/img/hunters-race-MYbhN8KaaEc-unsplash.jpg');background-size:cover; margin-top:-50px"><div class="jumbotron" style="background-color: rgba(0,0,0,0.89);">
+        <div class="row _contact  ml-4 ">
+            <div class="col-md">
+                <input class="form-group" type="text" placeholder=" Votre Nom..." />
+                <input class="form-group" type="text" placeholder="Votre Prenom..." />
+                <input class="form-group" type="text" placeholder=" Votre Email..." /></div>
+            <div class="col">
+                <textarea placeholder="Votre Message..."></textarea><br>
+                <button class="btn btn-primary mt-4" type="button"> <span>
+                   Envoyer </span> <i class="fa fa-paper-plane"></i></button></div>
+        </div>
+    </div>#}
+</div>
+{% endblock %}

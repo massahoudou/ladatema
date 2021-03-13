@@ -1,0 +1,19 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        offre:
+            uri_prefix: /images/offre
+            upload_destination: '%kernel.project_dir%/public/images/offre'
+
+        avis:
+            uri_prefix: /images/avis
+            upload_destination: '%kernel.project_dir%/public/images/avis'
+
+        service:
+            uri_prefix: /images/service
+            upload_destination: '%kernel.project_dir%/public/images/service'
+
+        users:
+            uri_prefix: /images/users
+            upload_destination: '%kernel.project_dir%/public/images/users'

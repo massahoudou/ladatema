@@ -1,0 +1,107 @@
+{% extends 'finance/finance_base.html.twig' %}
+
+{% block body  %}
+    <div class="jumbotron _finance text-light text-center" style="height: 400px;background-image: url('assets/img/mario-gogh-VBLHICVh-lI-unsplash.jpg');background-size: cover;background-attachment: fixed;border-radius:0px;">
+        <h1 class="mt-5" style="font-size: 61px;font-family:tw cen mt"><span class="text-primary">LADA</span> FINANCES<br></h1>
+        <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+    </div>
+    <div>
+        <h1 class="text-center" style="font-family: tw cen mt;font-size: 46px;"><span class="text-primary" style="padding-right: 3px;">A</span>propos</h1>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6 col-lg-5 col-xl-6"><img class="w-100" src="assets/img/annie-spratt-QckxruozjRg-unsplash.jpg"></div>
+                <div class="col-xl-1"></div>
+                <div class="col-md-6 col-xl-4">
+                {% if apropos  %}
+                
+                   <p class="text-uppercase text-muted">
+                            {{ apropos.Titre }}
+                        </p>
+                        <p class="text-justify">
+                            {{ apropos.description |  slice(0,350)|raw  }}
+                        </p>
+                        
+                {% endif %}
+                
+                     
+                        <a class="btn btn-primary  rounded-0  shadow-sm mt-3" href="{{ path('finance_propos') }}"><span>Voir plus&nbsp;</span><i class="fa fa-plus"></i></a></p>
+                </div>
+            </div>
+        </div>
+    </div><div class="mt-5 _service">
+    <h1 class="text-center" style="font-size: 32px;font-family:tw cen mt;font-size:46px"><span class="text-primary">Nos</span> Services</h1>
+    <div class="jumbotron">
+        <div class="container">
+         <div class="row  justify-content-around">
+            <div class="col-md-5 pb-3 text-left">
+                <img height="50px"class=" pb-3"  src="assets/img/icons8_timeline_52px.png" />
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure
+                    dolor in reprehenderit
+                </p>
+            </div>
+            
+            <div class="col-md-5 pb-3  text-left">
+                <img height="50px"class=" pb-3"  src="assets/img/icons8_workers_52px_1.png"/>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing 
+                    elit, sed do eiusmod tempor incididunt ut labore et 
+                    dolore magna aliqua. Ut enim ad minim veniam, 
+                    quis nostrud exercitation ullamco laboris nisi ut 
+                    aliquip ex ea commodo consequat. Duis aute irure 
+                    dolor in reprehenderit 
+                </p>
+            </div>
+        </div>
+       <div class="row  justify-content-around">
+            <div class="col-md-5 pb-3  text-left">
+                <img height="50px"class=" pb-3"  src="assets/img/icons8_timeline_52px.png" />
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing 
+                    elit, sed do eiusmod tempor incididunt ut labore et 
+                    dolore magna aliqua. Ut enim ad minim veniam, 
+                    quis nostrud exercitation ullamco laboris nisi ut 
+                    aliquip ex ea commodo consequat. Duis aute irure 
+                    dolor in reprehenderit 
+                </p>
+            </div>
+            
+            <div class="col-md-5 pb-3 text-left">
+                <img height="50px"class=" pb-3" src="assets/img/icons8_workers_52px_1.png"/>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing 
+                    elit, sed do eiusmod tempor incididunt ut labore et 
+                    dolore magna aliqua. Ut enim ad minim veniam, 
+                    quis nostrud exercitation ullamco laboris nisi ut 
+                    aliquip ex ea commodo consequat. Duis aute irure 
+                    dolor in reprehenderit 
+                </p>
+            </div>
+        </div>
+        </div>
+       
+        <div class="text-center"><a href="{{ path('finance_service') }}" class="btn btn shadow-sm rounded-0 btn-primary">
+            <span>Voir plus </span><i class="fa fa-plus"></i>
+            </a></div>
+    </div>
+</div>
+    <div class=" jumbotron bg-primary m-0  text-light" style="">
+    <div class="">
+        <div class="row justify-content-center">
+            <div class=" text-center">
+                <p id="_ct" style="font-family:tw cen mt;">Vous avez besoin de l’un de nos services ?</p>
+            </div>
+            <div class="col-md-4 text-center mt-3">
+                <a href="{{ path('finance_contact') }}" class="btn rounded-0 btn-light text-dark"> <span> Contacter-Nous </span><i class="fa fa-phone"></i> </a></div>
+        </div>
+    </div>
+</div>
+    <section class="bg-primary text-light"></section>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/Card-Carousel.js"></script>
+{% endblock %}

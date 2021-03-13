@@ -1,0 +1,79 @@
+security:
+    encoders:
+        App\Entity\Admin:
+            algorithm: plaintext
+        App\Entity\Users:
+            algorithm: plaintext
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+
+  
+    providers:
+        user_admin:
+            entity:
+                class: App\Entity\Admin
+                property: email
+
+        user_recruteur:
+            entity: 
+                class: App\Entity\Recruteur 
+                property: email
+
+        user_candidat:
+            entity: 
+                class: App\Entity\Candidat 
+                property: email
+
+
+        all_users:
+            chain: 
+                providers: [user_recruteur,user_candidat]
+
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            lazy: true
+            provider: all_users
+            guard:
+                authenticators:
+                    - App\Security\AppCustomAuthenticator
+            logout:
+                path: logout
+                target: rh_home
+
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 604800 # 1 semaine en second
+                path:     /
+                #always_remember_me: true
+
+        # admin:
+        #     anonymous: true
+        #     lazy: true
+        #     provider: all_users
+        #     form_login:
+        #         login_path: login
+        #         check_path: login
+      
+                # where to redirect after logout
+                # target: app_any_route
+           
+          
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+         - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/profile, roles: ROLE_USER }
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_ADMIN
+        ROLE_USER: ROLE_USER

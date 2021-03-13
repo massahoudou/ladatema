@@ -1,0 +1,80 @@
+{% extends "admin/admin_base.html.twig" %}
+{% block body  %}
+
+  <div class="container-fluid">
+            {% for message in app.flashes('new') %}
+                <div class="alert alert-success">
+                    {{ message  }}
+                </div>
+            {% endfor %} 
+            {% for message in app.flashes('delete') %}
+                <div class="alert alert-danger">
+                    {{ message  }}
+                </div>
+            {% endfor %}
+      {% for message in app.flashes('update') %}
+          <div class="alert alert-warning">
+              {{ message  }}
+          </div>
+      {% endfor %}
+
+      <!-- Illustrations -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">liste des offre d'emploi</h6>
+                </div>
+                <div class="card-body">
+                    <table class="table  table-hover table-bordered ">
+                        <thead class="bg-dark text-light">
+                            <tr class="bg-info">
+                                <td> #</td>
+                                <td>titre </td>
+                                <td>Decription</td>
+                                 <td>ville</td>
+                                <td>delai</td>
+                                <td>type de Contrat</td>
+                                <td>secteur d'activité </td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        {% for offre in offres %}
+                        <tr>
+                            <small>
+                                <td> {{ offre.id }} </td>
+                                <td>{{ offre.titre}} </td>
+                                <td>{{ offre.description |slice(0,20) |raw  }}...</td>
+                                <td>{{ offre.ville}} </td>
+                                <td>{{ offre.delai | date("m/d/Y")}} </td>
+                                <td>{{ offre.catcontrat }} </td>
+                                <td>
+                                    {% for secteur in offre.secteur %}
+                                        <p>{{ secteur.nom }}</p>
+                                    {% endfor %}
+                                </td>
+                                <td>
+                                    <a class="btn-sm text-primary"  href="{{ path("admin_offre_update",{'id': offre.id })}}"> <i class="fa fa-edit"></i></a> |
+                                    <a class=" btn-sm text-primary " href="{{ path("admin_offre_delete",{'id': offre.id })}}"> <i class="fa fa-trash-alt"></i></a>
+
+                                </td>
+                            </small>
+
+                             </tr>
+                        {% endfor %}
+                        </tbody>
+                    
+                    </table>
+                </div>
+              </div>
+
+
+  </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $('#myModal2').on('shown.bs.modal', function () {
+            $('#myInput').focus()
+        })
+    </script>
+{% endblock %}

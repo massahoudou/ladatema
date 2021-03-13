@@ -1,0 +1,202 @@
+.nav.navbar-nav.mx-auto {
+  margin-right: 200px;
+  border: 1px solid black !important;
+}
+
+#ul {
+  margin-right: 80px;
+}
+
+#logo {
+  margin-left: 50px;
+}
+
+.card.text-center {
+  width: 200px;
+}
+
+.card.text-center {
+}
+
+.container ._container {
+  position: relative;
+  margin-top: -170px;
+}
+
+@media (max-width: 868px) {
+  .container _container {
+    margin-top: 0;
+  }
+}
+
+.carousel-caption {
+ top: 20%
+}
+
+.card-title._card-title {
+  font-family: Tw Cen MT;
+}
+
+.container._container {
+  margin-top: -105px;
+}
+
+@media (max-width: 876px) {
+  .container._container {
+    position: relative;
+    margin-top: 0;
+  }
+}
+
+_contact_tips div p {
+}
+
+._section_finance {
+  background-image: linear-gradient(to bottom, rgba(30,30,30,0.7), rgba(19,64,117,0.73)),url('../../assets/img/drew-beamer-Se7vVKzYxTI-unsplash.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*filter: blur(4px);*/
+}
+
+._section_finance {
+  /*background-image: linear-gradient(90deg, #121212, rgba(10,10,47,0.67));*/
+}
+
+._section_rh {
+  background-image: url('../../assets/img/dylan-gillis-KdeqA3aTnBY-unsplash.jpg');
+  background-size: cover;
+}
+
+.text-center.text-muted._h1 {
+  font-family: tw cen MT;
+}
+
+._section_offre .jumbotron {
+  background-color: rgba(207,207,207,0.27);
+}
+
+.rows.br1.d-flex.justify-content-center {
+  border: 4px solid red;
+}
+
+.rows.br1.d-flex.justify-content-center .br2 {
+  border: 2px solid black;
+  width: 50%;
+  height: 150px;
+}
+
+.rows.br1.d-flex.justify-content-center .br3 {
+  border: 2px solid green;
+}
+
+.container {
+}
+
+._section .container {
+  font-family: tw cen mt;
+  font-weight: bold;
+}
+
+.nav-item {
+  margin-right: 35px;
+  font-family: tw cen mt;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.jumbotron._finance {
+}
+
+
+
+.row._contact textarea {
+  width: 80%;
+  font-size: 18px;
+  padding: 0 0 0 12px;
+  height: 210px;
+  border: none;
+  color: white;
+  border-bottom: 3px solid rgb(255,255,255);
+  background: rgba(255,255,255,0.47);
+}
+
+
+.row._contact {
+  justify-content: center;
+}
+
+._contact_tips p {
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  ._contact_tips {
+    margin-left: 30%;
+    margin-top: -2%;
+  }
+}
+
+
+
+
+._search {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.d-flex.flex-wrap._search1.text-center.justify-content-center {
+}
+
+.border-1, .border-2 {
+  border: 2px solid red;
+  width: 200px;
+  height: 50px;
+}
+
+
+
+._search1 button {
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-top: 3px;
+}
+
+.text-center {
+}
+
+._btn {
+  border-radius: 100px;
+  background: #e43636;
+  padding: 10px 50px 10px 50px;
+  font-size: 24px;
+  color: rgb(252,244,244);
+  text-decoration: none;
+  text-transform: none;
+}
+
+.jumbotron._recrut1 {
+  background-image: linear-gradient(10deg, rgba(28,41,51,0.47) ,rgb(12,117,243));
+}
+
+@media (max-width: 576px) {
+  ._btn {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  ._search1 input[type=text] {
+    width: auto;
+  }
+}
+
+._card1 {
+  background-image: linear-gradient(rgba(17,35,69,0.8),rgba(7,7,95,0.6)),url('../../assets/img/Rectangle%2092.png');
+  background-size: cover;
+}
+
+.card.mb-3._card1 {
+}
+

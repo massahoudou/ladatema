@@ -1,0 +1,14 @@
+{% for avis in avis  %}
+	<div class="col text-center card-body">
+		<div class="row justify-content-center">
+			{% if avis.image  %}
+				<img  class="w-25 rounded-circle shadow-sm" src="images/avis/{{ avis.image }}">
+			{% else %}
+				<img class="w-25 rounded-circle shadow-sm" src="images/avis/avatar-profile.png">
+			{% endif %}
+		</div>
+		<small class="text-uppercase font-weight-light">{{ avis.nom }}
+			{{ avis.prenom }}</small>
+		<small class="font-weight-ligther text-lowercase">{{ avis.commentaire | raw  }}</small>
+	</div>
+{% endfor %}

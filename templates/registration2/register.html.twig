@@ -1,0 +1,34 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+ <div class="mb-4">
+
+              <!-- Project Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Nouvel utilisateur</h6>
+                </div>
+                    <div class="card-body">  
+                      {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+
+
+    {{ form_start(registrationForm) }}
+        
+
+       
+    {{ form_end(registrationForm) }}
+     <button type="submit" class="btn-sm  btn-success">Enregistrer</button>
+                   </div>
+              </div>
+            </div>
+
+</div>
+    
+{% endblock %}

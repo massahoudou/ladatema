@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>LADATEMABOOT</title>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome.min.css') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/fonts/fontawesome5-overrides.min.css') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/css/Pretty-Footer.css') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/css/Sidebar-1-1.css') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/css/Sidebar-1.css') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/css/styles.css') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/css/datepicker.css') }}">
+    <link rel="stylesheet" href=" {{ asset('owlcarousel/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href=" {{ asset('owlcarousel/assets/owl.theme.default.min.css') }}">
+    <link rel="shortcut icon "type="image/png" href="{{ asset('assets/img/logo/logo.png') }}">
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=600af90ab6a13e0011dc3b00&product=inline-share-buttons" async="async"></script>
+    <style>
+        .filter{
+            display: block;
+            position: sticky;
+            font-size: 15px  ;
+            padding-left:15px;
+        }
+        .filter  div  {
+            padding-bottom: 10px ;
+        }
+        #_hovereffect:hover
+        {
+
+
+            animation: 1s  slideon;
+        }
+        @keyframes slideon{
+            0% {
+                transform:  scale(1);
+                opacity: 0.95;
+            }
+
+            50% {
+                opacity: 0.95;
+                transform:  scale(1.05);
+            }
+            100%
+            {
+
+                transform:  scale(1);
+            }
+
+        }
+
+    </style>
+    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_script_tags('app') | replace({'src=': 'defer src='}) |raw  }}
+</head>
+
+<body   >
+<nav class="navbar navbar-light navbar-expand-md shadow-sm bg-white sticky-top ">
+    <div class="container-fluid"><a class="navbar-brand" href="{{ path('home') }}" style="margin-left: 50px;">
+            <img  class="w-25" style="" src="{{ asset('assets/img/logo/logo.png') }}" alt="" title="LADATEMA RESAERCH">
+
+        </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div
+                class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav ml-auto" style="">
+                <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('rh_home') }}">Accueil</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('rh_offre') }}">Candidat</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="">Recruteur</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('rh_cv') }}">Cvthèque</a></li>
+                {% if app.user %}
+                    <li class="nav-item " role="presentation"><a class="nav-link text-capitalize btn-sm btn-dark rounded-0 shadow-sm text-light pl-4 pr-4"
+                                {% if  is_granted('ROLE_CAN') %}
+
+                                    href="{{ path('candidat')}}"
+                                {% elseif is_granted('ROLE_REC')%}
+                                    href=" {{ path('recruteur') }}"
+                                {% endif %}
+                        ><span class="">Mon compte&nbsp;</span><i class="fa fa-user-circle-o"></i></a></li>
+                {% else %}
+                    <li class="nav-item" role="presentation"><a class="nav-link text-capitalize btn-sm btn-dark shadow-sm text-light pl-4 pr-4" style="margin-right: 0;" href="{{path('login')}}"><span>Connection&nbsp;</span><i class="fa fa-user"></i></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link btn-sm  shadow-sm text-white pl-4 pr-4" href="{{ path('inscription')}}" style="background-image: linear-gradient(to top right, #0000ff 0%, #66ffcc 113%);border: none;font-family: 'Tw Cen MT';font-weight: 300"><span>Inscription&nbsp;</span><i class="fa fa-hand-pointer-o"></i></a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block body %}
+
+{% endblock %}
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/Card-Carousel.js') }}"></script>
+<script src="{{ asset('assets/js/datepicker.min.js') }}"></script>
+<script src="{{ asset('owlcarousel/owl.carousel.min.js') }}"></script>
+<!--<script>
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+        items:4,
+        loop:true,
+        margin:10,
+        autoplay:true,
+        autoplayTimeout:1000,
+        autoplayHoverPause:true
+    });
+    $('.play').on('click',function(){
+        owl.trigger('play.owl.autoplay',[1000])
+    })
+    $('.stop').on('click',function(){
+        owl.trigger('stop.owl.autoplay')
+    })
+</script>-->
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+    $(document).ready(function() {
+        // you may need to change this code if you are not using Bootstrap Datepicker
+        $('.js-datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    });
+</script>
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+    })
+</script>
+{% block javascripts %}{% endblock %}
+
+</body>
+
+</html>

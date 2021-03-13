@@ -1,0 +1,43 @@
+{{ form_start(form) }}
+<div class="row">
+        <div class="col-md">{{ form_row(form.titre) }}</div>
+        <div class="col-md-2">{{ form_row(form.genre) }}</div>
+</div>
+
+<div class="row">
+
+        <div class="col-md-2">{{ form_row(form.etude) }}</div>
+        <div class="col-md-2">{{ form_row(form.nombreposte) }}</div>
+        <div class="col-md-2">{{ form_row(form.experience) }}</div>
+        <div class="col-md-3">{{ form_row(form.ville) }}</div>
+        <div class="col-md">{{ form_row(form.pays) }}</div>
+
+</div>
+<div class="row">
+        <div class="col-md-">{{ form_row(form.delai ) }}</div>
+        <div class="col-md">{{ form_row(form.salaire) }}</div>
+        <div class="col-md">{{ form_row(form.catcontrat) }}</div>
+
+</div>
+<div class="row">
+
+
+        <div class="col-md">
+                {{ form_label(form.secteur) }}
+                <div class="">{{ form_widget(form.secteur) }}</div>
+        </div>
+        <div class="col-md">{{ form_row(form.imageFile) }}</div>
+
+</div>
+<div class="row">
+
+        <div class="col-md">{{ form_row(form.description) }}</div>
+
+</div>
+<div>
+        <button  type="submit"class="btn btn-primary rounded-0">
+                Enregistrer
+                <span class="fa fa-save"></span>
+        </button>
+</div>
+{{ form_end(form) }}

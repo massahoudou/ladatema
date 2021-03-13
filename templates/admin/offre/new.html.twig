@@ -1,0 +1,65 @@
+{% extends "admin/admin_base.html.twig" %}
+{% block body %}
+<div class="">
+
+        <div class="d-flex justify-content-center">
+
+            <div class="">
+
+              <!-- Project Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Nouvel Offre d'emploi</h6>
+                </div>
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        <div class="row">
+                            <div class="col-md">{{ form_row(form.titre) }}</div>
+                            <div class="col-md-2">{{ form_row(form.genre) }}</div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-2">{{ form_row(form.etude) }}</div>
+                            <div class="col-md-2">{{ form_row(form.nombreposte) }}</div>
+                            <div class="col-md-2">{{ form_row(form.experience) }}</div>
+                            <div class="col-md-3">{{ form_row(form.ville) }}</div>
+                            <div class="col-md">{{ form_row(form.pays) }}</div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-">{{ form_row(form.delai ) }}</div>
+                            <div class="col-md">{{ form_row(form.salaire) }}</div>
+                            <div class="col-md">{{ form_row(form.catcontrat) }}</div>
+
+                        </div>
+                        <div class="row">
+
+
+                            <div class="col-md">
+                                {{ form_label(form.secteur) }}
+                                <div class="">{{ form_widget(form.secteur) }}</div>
+                            </div>
+                            <div class="col-md">{{ form_row(form.imageFile) }}</div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md">{{ form_row(form.description) }}</div>
+
+                        </div>
+                        <div>
+                            <button  type="submit"class="btn btn-primary rounded-0">
+                                Enregistrer
+                                <span class="fa fa-save"></span>
+                            </button>
+                        </div>
+                        {{ form_end(form) }}
+
+                    </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
