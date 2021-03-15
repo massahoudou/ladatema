@@ -93,15 +93,15 @@
 		<script src="assets/js/Card-Carousel.js"></script>
 		<script>
 			$(".gallery a").click(function (event) {
-var pop_img = $(this).attr('href');
-$("body").append('<div id="close"class="pop_img_bg "> <div class="pop_img"> <img src="' + pop_img + '" /></div> </div>');
+			var pop_img = $(this).attr('href');
+			$("body").append('<div id="close"class="pop_img_bg "> <div class="pop_img"> <img src="' + pop_img + '" /></div> </div>');
 
-return false
-});
-$('.pop_img_bg').click($('.pop_img_bg').remove())
-$(".pop_img").click(function (event) {
-return false;
-});
+			return false
+			});
+			$('.pop_img_bg').click($('.pop_img_bg').remove())
+			$(".pop_img").click(function (event) {
+			return false;
+			});
 		</script>
 	</body>
 </html>
