@@ -14,7 +14,7 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress",
-        "heroku-postbuild": "webpack -p --config webpack.config.js"
+        "heroku-postbuild": "encore dev-server --hot"
     },
     "dependencies": {
         "nouislider": "^14.6.3"
