@@ -150,7 +150,6 @@ class RhController extends AbstractController
             'une_offre' => $une_offre,
              'offre' => $offre,
             'offre_rel' => $offre_relatif,
-
         ]);
     }
 

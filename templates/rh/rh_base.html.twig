@@ -19,7 +19,6 @@
 		<link rel="stylesheet" href=" {{ asset('assets/css/datepicker.css') }}">
 		<link rel="stylesheet" href=" {{ asset('owlcarousel/assets/owl.carousel.min.css') }}">
 		<link rel="stylesheet" href=" {{ asset('owlcarousel/assets/owl.theme.default.min.css') }}">
-		<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=600af90ab6a13e0011dc3b00&product=inline-share-buttons" async="async"></script>
 		<link rel="shortcut icon " type="image/png" href="{{ asset('assets/img/logo/logo.png') }}">
 		<style>
 			.filter {
@@ -148,8 +147,8 @@ loop: true
 		</script>
 		<script>
 			$('#myModal').on('shown.bs.modal', function () {
-$('#myInput').focus()
-})
+				$('#myInput').focus()
+			})
 		</script>
 		{% block javascripts %}{% endblock %}
 
