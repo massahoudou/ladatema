@@ -54,7 +54,7 @@ class RhController extends AbstractController
                 'max'=> $max,
                 ]);
         }
-        return $this->render('Rh/index.html.twig',[
+        return $this->render('rh/index.html.twig',[
             'controller_name' => 'Rh',
             'form' => $form2->createView(),
             'offres' => $this->repos->findAll(),
@@ -102,7 +102,6 @@ class RhController extends AbstractController
         $form->handleRequest($request);
         $secteur =  $repository->findOneBy(['id' => $id ]);
         $data->secteur  = $secteur ;
-
         return $this->render('rh/offre/candidat.html.twig',[
             'Controller_Name' =>'offre d\'emploi',
                 'form' => $form->createView(),

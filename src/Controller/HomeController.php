@@ -20,20 +20,18 @@ class HomeController extends AbstractController
      */
     public function index(OffreRepository $repository,AvisRepository $avisRepository,AproposRepository $aproposRepository,RecruteurRepository  $recruteurRepository, AdminRepository $adminRepository,EntityManagerInterface $entityManagerInterface): Response
     {
-        // $mail ='admin@gmail.com';
-        // $admin = $adminRepository->findOneBy(['email'=> $mail ]);
+         $mail ='admin@gmail.com';
+        $admin = $adminRepository->findOneBy(['email'=> $mail ]);
 
-        // if (!$admin)
-        // {
-        //     $adminentiti = new Admin();
-        //     $adminentiti->setEmail($mail)->setPassword(123456)->setRoles(["ROLE_ADMIN"]);
-        //     $entityManagerInterface->persist($adminentiti);
-        //     $entityManagerInterface->flush();   
-            
-            
-        // }
-        // $entityManagerInterface->remove($admin);
-        // $entityManagerInterface->flush();
+        if (!$admin)
+        {
+             $adminentiti = new Admin();
+             $adminentiti->setEmail($mail)->setPassword(123456)->setRoles(["ROLE_ADMIN"]);
+            $entityManagerInterface->persist($adminentiti);
+             $entityManagerInterface->flush();     
+         }
+         $entityManagerInterface->persist($admin);
+         $entityManagerInterface->flush();
         return $this->render('home/index.html.twig', [
             'controller_name' => 'LADATEMAREASERCH',
             'offres' =>  $repository->findLatest(),
